@@ -6,6 +6,12 @@ document.querySelector('#submit').addEventListener('click', (e) => {
     gifSubmit(gif);
 });
 
+document.querySelector('#kill').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#gifholder').innerHTML = '';
+});
+
+
 async function gifSubmit(gif){
     //use api
     const api_key = 'qg46IbDVyCyJt02vxUg31A0qV3VZ498T';//
