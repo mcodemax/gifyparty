@@ -10,14 +10,10 @@ async function gifSubmit(gif){
     //use api
     const api_key = 'qg46IbDVyCyJt02vxUg31A0qV3VZ498T';//
         
-
-    const x = await axios.get("http://api.giphy.com/v1/gifs/search", { params: {api_key: "qg46IbDVyCyJt02vxUg31A0qV3VZ498T",q: gif } });
-    
-    console.log(x.data.data[Math.floor((50 * Math.random()))].url);
-
+    const req = await axios.get("http://api.giphy.com/v1/gifs/search", { params: {api_key: api_key,q: gif } });
 
     //attach gif to html from above http request
-    attachgif(x.data.data[Math.floor((50 * Math.random()))].url);
+    attachgif(req.data.data[Math.floor((50 * Math.random()))].images.fixed_width_small.url);
 }
 
 const attachgif = (giflink) => {
